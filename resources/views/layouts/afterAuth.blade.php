@@ -58,10 +58,10 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
                             <table id="naviTable" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     @hasSection('acceuil')
-                                    @yield('acceuil')
+                                        <td id='acceuil' class="item active" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
                                     @else
-                                    <td id='acceuil' class="item" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-                                        @endif
+                                        <td id='acceuil' class="item" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
+                                    @endif
                                         <a href="{{route('home')}}">
                                             <img src="{{asset('pictures/Button-home-grau.jpg')}}" width="85" height="71" border="0" alt="Home"/>
                                         </a>
@@ -75,10 +75,10 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
 
                                     <td width="5"></td>
                                     @hasSection('crossReference')
-                                    @yield('crossReference')
+                                        <td id='crossReference' class="item active" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
                                     @else
-                                    <td id='crossReference' class="item" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-                                        @endif
+                                        <td id='crossReference' class="item" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
+                                    @endif
 
                                         <a href="">
                                             <img src="{{asset('pictures/Button-Umschluesselung-grau.jpg')}}" width="85" height="71" border="0" alt="Cross Reference" />
@@ -92,10 +92,10 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
 
                                     <td width="5"></td>
                                     @hasSection('importCommand')
-                                    @yield('importCommand')
+                                        <td id='importCommand' class="item active" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
                                     @else
-                                    <td id='importCommand' class="item" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-                                        @endif
+                                        <td id='importCommand' class="item" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
+                                    @endif
 
                                         <a @if(auth()->user()->acces_panier == 1) href="{{route('importcommande')}}" @else onclick="return createAlert('Vous n\'êtes pas autorisé à importer des commandes')" href="#" @endif>
                                             <img src="{{asset('pictures/Button-Bestellimport-grau.jpg')}}" width="85" height="71" border="0" alt="Order Import" />
@@ -109,10 +109,10 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
 
                                     <td width="5"></td>
                                     @hasSection('monCompte')
-                                    @yield('monCompte')
+                                        <td id='monCompte' class="item active" style="border-right: solid 2px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
                                     @else
-                                    <td id='monCompte' class="item" style="border-right: solid 2px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-                                        @endif
+                                        <td id='monCompte' class="item" style="border-right: solid 2px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
+                                    @endif
 
                                         <a href="{{route('moncompte.affiche')}}">
                                             <img src="{{asset('pictures/Button-MyAccount-grau.jpg')}}" width="85" height="71" border="0" alt="My Account" />
@@ -181,10 +181,10 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
                             </tr>
                             <tr>
                                 @hasSection('requestList')
-                                @yield('requestList')  <!-- <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;background-color:#dddddd;"> -->
+                                    <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;background-color:#dddddd;">
                                 @else
-                                <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;">
-                                    @endif
+                                    <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;">
+                                @endif
 
                                     Vos demandes<br/>
 
@@ -212,10 +212,10 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
                             </tr>
                             <tr>
                                 @hasSection('panier')
-                                @yield('panier')  <!-- <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;background-color:#dddddd;"> -->
+                                    <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;background-color:#dddddd;">
                                 @else
-                                <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;">
-                                    @endif
+                                    <td align="center" valign="bottom" style="font-weight:normal;font-size:10px;">
+                                @endif
 
                                     Panier<br/>
 

@@ -18,7 +18,7 @@ class PanierController extends Controller
         $this->middleware('panier');
     }
 
-    public function afficheRemerciement()
+    public function afficheConfirmation()
     {
         return view('onglet.panier.afterPanier');
     }
@@ -186,7 +186,7 @@ class PanierController extends Controller
             $mail->Host = 'smtp.office365.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'webshopfrance@stauffsa.com';
-            $mail->Password = 'Cax12940';
+            $mail->Password = 'Lax26880';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
             $mail->setFrom('webshopfrance@stauffsa.com', 'STAUFF');
@@ -202,7 +202,7 @@ class PanierController extends Controller
                 $request->session()->forget('panier');
             }
             //array_map('unlink', glob("CSV/achat/*.csv"));
-            return redirect()->route('merciPanier');
+            return redirect()->route('confirmationpanier');
         }
     }
 

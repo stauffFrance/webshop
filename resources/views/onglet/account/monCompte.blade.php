@@ -2,9 +2,8 @@
 
 @section('titre','Mon compte')
 
-@section('monCompte')
-<td id='monCompte' class="item active" style="border-right: solid 2px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-@endsection
+@section('monCompte','oui')
+
 
 @section('content')
 @if(auth()->user()->superAdmin == 1)

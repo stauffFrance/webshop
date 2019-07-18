@@ -35,6 +35,8 @@
     <br/><br/>
     <span style="color:blue" >
         <strong>{{ session('status') }}</strong>
+        <br>
+        <strong>Pensez à vérifier dans vos <u>SPAM</u></strong>
     </span>
     @endif
 

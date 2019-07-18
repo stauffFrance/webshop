@@ -1,12 +1,9 @@
 @extends('layouts.afterAuth')
 
-@section('titre')
-Acceuil
-@endsection
+@section('titre','Acceuil')
 
-@section('acceuil')
-<td id='acceuil' class="item active" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-@endsection
+@section('acceuil','oui')
+
 
 @section('content')
 <table class="twoCols" cellpadding="0" cellspacing="0" border="0">

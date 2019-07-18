@@ -19,6 +19,11 @@ class RequestListController extends Controller
         $this->middleware('demande');
     }
 
+    public function afficheConfirmation()
+    {
+        return view('onglet.requestList.afterRequest');
+    }
+
     public function afficheRequestList(Request $request)
     {
         if (session('requestList') !== null) {
@@ -83,7 +88,7 @@ class RequestListController extends Controller
         $mail->Host = 'smtp.office365.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'webshopfrance@stauffsa.com';
-        $mail->Password = 'Cax12940';
+        $mail->Password = 'Lax26880';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         $mail->setFrom('webshopfrance@stauffsa.com', 'STAUFF');
@@ -109,7 +114,7 @@ class RequestListController extends Controller
         });*/
 
         $request->session()->forget('requestList');
-        return back();
+        return redirect()->route('confirmationrequestlist');
     }
 
     public function ajouterRequestList()

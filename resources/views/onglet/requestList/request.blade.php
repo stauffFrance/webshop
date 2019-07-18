@@ -2,81 +2,82 @@
 
 @section('titre','Demande de Prix/Délai')
 
-@section('requestList')
-<script type="text/javascript">
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-function checkForm(nb){
-    showWait('button_sendRequest','sanduhr_sendRequest');
-    for (var i = 0; i < nb; i++) {
-        var prix = $("#prix"+i).is(":checked");
-        var delai = $("#delai"+i).is(":checked");
-
-        if(!(prix || delai)){
-            alert('Vous devez cochez au moins une des cases pour la demande numéro '+(i+1));
-            stopShowWait('button_sendRequest','sanduhr_sendRequest');
-            return false;
-        }
-    }
-
-    return true;
-}
-
-function addLine(url){
-
-    var qty = "1";
-    var text = "";
-
-    var dataString ="qty="+qty+"&text="+text;
-    //console.log(dataString);
-    $.ajax({
-        type: "POST",
-        url: "ajouterRequestList",
-        data: dataString,
-
-        success: function(data){
-            var nb = parseInt($('#CountArticlesRequestList').text());
-            $('#CountArticlesRequestList').text(nb+1);
-            window.location.reload();
-
-        }
-    });
-
-}
-
-function saveInput(type, index)
-{
-
-    if(type == "prix" || type == "delai"){
-        var typeValue = $("#"+type+index).is(":checked");
-        console.log(typeValue);
-    }else{
-        var typeValue = document.getElementById(type+index).value;
-    }
+@section('requestList','oui')
 
 
-    var dataString = type+"="+typeValue+"&index="+index;
-    console.log(dataString);
-    $.ajax({
-        type: "POST",
-        url: "saveRequestListInput",
-        data: dataString,
-
-        success: function(data){
-
-        }
-    });
-}
-
-</script>
-<td align="center" valign="bottom" style="font-weight:normal;font-size:10px;background-color:#dddddd;">
-    @endsection
 
     @section('content')
+
+    <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function checkForm(nb){
+        showWait('button_sendRequest','sanduhr_sendRequest');
+        for (var i = 0; i < nb; i++) {
+            var prix = $("#prix"+i).is(":checked");
+            var delai = $("#delai"+i).is(":checked");
+
+            if(!(prix || delai)){
+                alert('Vous devez cochez au moins une des cases pour la demande numéro '+(i+1));
+                stopShowWait('button_sendRequest','sanduhr_sendRequest');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function addLine(url){
+
+        var qty = "1";
+        var text = "";
+
+        var dataString ="qty="+qty+"&text="+text;
+        //console.log(dataString);
+        $.ajax({
+            type: "POST",
+            url: "ajouterRequestList",
+            data: dataString,
+
+            success: function(data){
+                var nb = parseInt($('#CountArticlesRequestList').text());
+                $('#CountArticlesRequestList').text(nb+1);
+                window.location.reload();
+
+            }
+        });
+
+    }
+
+    function saveInput(type, index)
+    {
+
+        if(type == "prix" || type == "delai"){
+            var typeValue = $("#"+type+index).is(":checked");
+            console.log(typeValue);
+        }else{
+            var typeValue = document.getElementById(type+index).value;
+        }
+
+
+        var dataString = type+"="+typeValue+"&index="+index;
+        console.log(dataString);
+        $.ajax({
+            type: "POST",
+            url: "saveRequestListInput",
+            data: dataString,
+
+            success: function(data){
+
+            }
+        });
+    }
+
+    </script>
 
     <form name="f_requestlist" action="{{route('envoyerrequestlist')}}" enctype="multipart/form-data" method="post" @isset($requestList) onsubmit="return checkForm({{count($requestList)}})" @endisset>
         @csrf

@@ -2,9 +2,7 @@
 
 @section('titre','Panier')
 
-@section('panier')
-<td align="center" valign="bottom" style="font-weight:normal;font-size:10px;background-color:#dddddd;">
-    @endsection
+@section('panier','oui')
 
     @section('content')
     <script type="text/javascript">

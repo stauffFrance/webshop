@@ -36,7 +36,7 @@ Route::post('/monCompte/listeCommande', 'ListCommandController@showCommand')->na
 Route::get('/panier', 'PanierController@affichePanier')->name('affichepanier');
 Route::post('/panier/verifierEtCommander', 'PanierController@verifierEtCommander')->name('verifieretcommander');
 Route::post('/ajouterAuPanier', 'PanierController@ajouterAuPanier');
-Route::get('/panier/merci', 'PanierController@afficheRemerciement')->name('merciPanier');
+Route::get('/panier/confirmation', 'PanierController@afficheConfirmation')->name('confirmationpanier');
 
 Route::post('/savePanierInput', 'PanierController@savePanierInput');
 
@@ -47,6 +47,7 @@ Route::get('/requestList', 'RequestListController@afficheRequestList')->name('af
 Route::post('/ajouterRequestList', 'RequestListController@ajouterRequestList');
 Route::post('/saveRequestListInput', 'RequestListController@saveRequestListInput');
 Route::post('/requestList', 'RequestListController@envoyerRequestList')->name('envoyerrequestlist');
+Route::get('/requestList/confirmation', 'RequestListController@afficheConfirmation')->name('confirmationrequestlist');
 
 Route::get('/monCompte/nouvelUtilisateur', 'GestionUtlisateurController@afficheCreate')->name('nouvelutilisateur.affiche');
 Route::post('/monCompte/nouvelUtilisateur', 'GestionUtlisateurController@register')->name('nouvelutilisateur.ajouter');

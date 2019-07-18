@@ -2,9 +2,7 @@
 
 @section('titre','Importer une commande à votre panier')
 
-@section('importCommand')
-<td id='importCommand' class="item active" style="border-right: solid 1px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-    @endsection
+@section('importCommand','oui')
 
     @section('content')
     <style>
