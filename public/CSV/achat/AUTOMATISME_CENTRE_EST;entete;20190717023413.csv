@@ -1,3 +1,0 @@
-﻿RecordKey;DocType;DocObjectCode;ShipToCode;CardCode;ShipToStreet;ShipToCity;ShipToCounty;ShipToZipCode;DocDate;DocDueDate;PartialSupply;NumAtCard;SalesPersonCode;PaymentGroupCode;TransportationCode;U_code_corres;U_NOMCORRE;U_NBS_UDP;U_AppPL
-RecordKey;DocType;DocObjectCode;ShipToCode;CardCode;ShipToStreet;ShipToCity;ShipToCounty;ShipToZipCode;DocDate;DocDueDate;PartialSupply;NumAtCard;SalesPersonCode;PaymentGroupCode;TransportationCode;U_code_corres;U_NOMCORRE;U_NBS_UDP;U_AppPL
-1;I;17;ACE MONTLUCON;C102150;81 TER RUE DES PASQUIS;MONTLUCON;;03100;20190717;20190101;tYES;ceciEstUnNumeroDeCommande;6;28;2;42;WebShop;1;N

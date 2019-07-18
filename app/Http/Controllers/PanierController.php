@@ -18,6 +18,11 @@ class PanierController extends Controller
         $this->middleware('panier');
     }
 
+    public function afficheRemerciement()
+    {
+        return view('onglet.panier.afterPanier');
+    }
+
     public function affichePanier(Request $request)
     {
         //dump(Auth::user());
@@ -194,11 +199,10 @@ class PanierController extends Controller
             $mail->Body = view('emails.panierVerif', ['date' => $date, 'user' => $user, 'numCommande' => $numCommande, 'panier' => $panier, 'listDate' => $listDate])->render();
             $mail->isHTML(true);
             if ($mail->send()) { //$mail->send()
-                //$request->session()->forget('panier');
+                $request->session()->forget('panier');
             }
-            return redirect()->route('affichepanier');
-
             //array_map('unlink', glob("CSV/achat/*.csv"));
+            return redirect()->route('merciPanier');
         }
     }
 

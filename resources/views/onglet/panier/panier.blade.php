@@ -479,6 +479,6 @@
 
     </form>
     @else
-    <div style="font-size:16px;">Il n'y a aucun produit dans votre panier.</div>
+        <div style="font-size:16px;">Il n'y a aucun produit dans votre panier.</div>
     @endif
     @endsection

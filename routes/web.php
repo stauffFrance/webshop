@@ -36,6 +36,7 @@ Route::post('/monCompte/listeCommande', 'ListCommandController@showCommand')->na
 Route::get('/panier', 'PanierController@affichePanier')->name('affichepanier');
 Route::post('/panier/verifierEtCommander', 'PanierController@verifierEtCommander')->name('verifieretcommander');
 Route::post('/ajouterAuPanier', 'PanierController@ajouterAuPanier');
+Route::get('/panier/merci', 'PanierController@afficheRemerciement')->name('merciPanier');
 
 Route::post('/savePanierInput', 'PanierController@savePanierInput');
 

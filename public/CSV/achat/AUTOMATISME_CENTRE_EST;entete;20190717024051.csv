@@ -1,3 +1,0 @@
-﻿RecordKey;DocType;DocObjectCode;ShipToCode;CardCode;ShipToStreet;ShipToCity;ShipToCounty;ShipToZipCode;DocDate;DocDueDate;PartialSupply;NumAtCard;SalesPersonCode;PaymentGroupCode;TransportationCode;U_code_corres;U_NOMCORRE;U_NBS_UDP;U_AppPL
-RecordKey;DocType;DocObjectCode;ShipToCode;CardCode;ShipToStreet;ShipToCity;ShipToCounty;ShipToZipCode;DocDate;DocDueDate;PartialSupply;NumAtCard;SalesPersonCode;PaymentGroupCode;TransportationCode;U_code_corres;U_NOMCORRE;U_NBS_UDP;U_AppPL
-1;I;17;AUTOMATISME CENTRE EST;C102150;ZAE CAP NORD - BP 36710;DIJON CEDEX;12 RUE ETIENNE DOLET;21067;20190717;20190101;tYES;789;6;28;2;42;WebShop;1;N

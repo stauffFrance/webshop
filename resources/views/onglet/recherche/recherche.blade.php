@@ -295,7 +295,7 @@
                                             action: function(){
                                                 var itemCode = "{{$article->itemCode}}";
                                                 var desc = "{{$article->itemName}}";
-                                                var qty = $('#input-{{$article->itemCode}}').val();
+                                                var qty = $('input[id="input-{{$article->itemCode}}"]').val();
 
                                                 var dataString = "itemCode="+itemCode+"&desc="+desc+"&qty="+qty;
                                                 $.ajax({
