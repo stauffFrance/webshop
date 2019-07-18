@@ -1,0 +1,4 @@
+﻿RecordKey;LineNum;ItemCode;Quantity;ShipDate;U_STPREPA;U_u_prix_vte;BackOrder;U_NUMCAT;ShipToCode
+RecordKey;LineNum;ItemCode;Quantity;ShipDate;U_STPREPA;U_u_prix_vte;BackOrder;U_NUMCAT;ShipToCode
+1;0;116203.213;1500;20190101;1;le cent;tYES;;MBF ACCES NORD
+1;1;514201.120;2000;20190101;1;le cent;tYES;;MBF ACCES NORD
