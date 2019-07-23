@@ -40,6 +40,10 @@ class GestionUtlisateurController extends Controller
     {
         $data['email'].=$data['finEmail'];
 
+        $data['nombreEmployee'] = DB::table('STAUFF_Users')
+                                  ->where('CardCode', '=', Auth::user()->CardCode)
+                                  ->count('CardCode');
+
         return Validator::make($data, [
             'nom' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
@@ -48,6 +52,7 @@ class GestionUtlisateurController extends Controller
             'telephone_portable' => ['regex:/^([0-9]{10})$/','nullable'],
             'service' => ['required', 'string', 'max:255'],
             'fonction' => ['required', 'string', 'max:255'],
+            'nbEmployee' => ['required','max:16','numeric'],
         ]);
     }
 
@@ -82,7 +87,7 @@ class GestionUtlisateurController extends Controller
 
         $user = new User();
         $user->email = $data['email'] . $data['finEmail'];
-        $user->notify(new WelcomeUser($data));
+        //$user->notify(new WelcomeUser($data));
 
         return $u;
     }
@@ -111,7 +116,7 @@ class GestionUtlisateurController extends Controller
             'service' => ['required', 'string', 'max:255'],
             'fonction' => ['required', 'string', 'max:255']]);
 
-        $date = Carbon::now()->setTimezone('Europe/Paris');
+        //$date = Carbon::now()->setTimezone('Europe/Paris');
 
         DB::table('STAUFF_Users')
             ->where('id', '=', $request['currentId'])
@@ -127,7 +132,7 @@ class GestionUtlisateurController extends Controller
                       'acces_panier' => $request->acces_panier === 'true' ? 1 : 0,
                       'acces_prix' => $request->acces_prix === 'true' ? 1 : 0,
                       'acces_suivi' => $request->acces_suivi === 'true' ? 1 : 0,
-                      'updated_at' => $date
+                      //'updated_at' => $date
                       ]);
 
         return response()->json([

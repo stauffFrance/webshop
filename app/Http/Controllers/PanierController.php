@@ -25,11 +25,6 @@ class PanierController extends Controller
 
     public function affichePanier(Request $request)
     {
-        //dump(Auth::user());
-        //die();
-        /*$date = Carbon::now()->setTimezone('Europe/Paris');
-        dump($date->format('Ymdhis'));
-        die();*/
         $adresses = DB::table('STAUFF_webshop_client_adresse')
                         ->select('ShipToCode as nom', 'ShipToStreet as adresse1', 'ShipToCounty as adresse2', 'ShipToCity as ville', 'ShipToZipCode as codePostal', 'Defaut as defaut')
                         ->where('CardCode', '=', Auth::user()->CardCode)
@@ -186,7 +181,7 @@ class PanierController extends Controller
             $mail->Host = 'smtp.office365.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'webshopfrance@stauffsa.com';
-            $mail->Password = 'Lax26880';
+            $mail->Password = 'Jaju2019!@kmfs6w';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
             $mail->setFrom('webshopfrance@stauffsa.com', 'STAUFF');

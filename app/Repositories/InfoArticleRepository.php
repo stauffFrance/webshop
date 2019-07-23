@@ -247,4 +247,37 @@ class InfoArticleRepository
             return strval($list[0]->substitute);
         }
     }
+
+    public static function genere_password()
+    {
+        $charSpe = "!@#$%^&*();,.?:{}-_|<>=+";
+        $password = "";
+        $compt = ['min' => 0, 'maj' => 0, 'chiffre' => 0, 'charSpe' => 0];
+
+        for ($i=0; $i < 10 ; $i++) {
+            $rand = rand(1, 100);
+
+            if ($rand <= 25 and $compt['min'] < 4) {
+                $password .= chr(rand(97, 122));
+                $compt['min']++;
+                continue;
+            } elseif ($rand > 25 and $rand <= 50 and $compt['maj'] < 3) {
+                $password .= chr(rand(65, 90));
+                $compt['maj']++;
+                continue;
+            } elseif ($rand > 50 and $rand <= 75 and $compt['chiffre'] < 2) {
+                $password .= rand(1, 9);
+                $compt['chiffre']++;
+                continue;
+            } elseif ($rand > 75 and $compt['charSpe'] < 1) {
+                $password .= $charSpe[rand(0, strlen($charSpe)-1)];
+                $compt['charSpe']++;
+                continue;
+            }
+
+            $i--;
+        }
+
+        return $password;
+    }
 }

@@ -54,8 +54,12 @@ Route::post('/monCompte/nouvelUtilisateur', 'GestionUtlisateurController@registe
 
 Route::get('/monCompte/modifierProfil', 'GestionUtlisateurController@afficheModif')->name('modifprofil.affiche');
 Route::post('/monCompte/modifierProfil', 'GestionUtlisateurController@modifier')->name('modifprofil.modifier');
+Route::get('/monCompte/changePassword', 'Auth\ChangePasswordController@afficheChangePassword')->name('affichechangepassword');
+Route::post('/monCompte/changePassword', 'Auth\ChangePasswordController@changePassword')->name('changepassword');
 Route::post('/deleteUser', 'GestionUtlisateurController@deleteUser');
 
+Route::get('/monCompte/registerIntern', 'RegisterInternController@afficheCreateIntern')->name('affichecreateintern');
+Route::post('/monCompte/registerIntern', 'RegisterInternController@register')->name('createintern');
 
 Route::get('/contact', function () {
     if (Auth::check()) {

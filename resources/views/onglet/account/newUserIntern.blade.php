@@ -1,19 +1,16 @@
 @extends('layouts.afterAuth')
 
-@section('titre','Créer un compte Administrateur')
-
-@section('monCompte')
-<td id='monCompte' class="item active" style="border-right: solid 2px #007857;; border-left: solid 1px #007857;; border-top: solid 1px #007857;">
-@endsection
+@section('titre','Créer un compte interne')
 
 @section('content')
-<form name="register" method="POST" action="{{ route('register') }}" onsubmit="showWait('button_register','sanduhr_register');">
+<form name="addUserIntern" method="POST" action="{{route('createintern')}}" onsubmit="showWait('button_add','sanduhr_add');">
     @csrf
     <?php
-        use App\Repositories\InfoArticleRepository;
+    use App\Repositories\InfoArticleRepository;
 
 $hashed_random_password = InfoArticleRepository::genere_password();
     ?>
+    <input id="password" type="hidden" name="password" value="{{$hashed_random_password}}"/>
 
     <table>
         <tr>
@@ -33,7 +30,7 @@ $hashed_random_password = InfoArticleRepository::genere_password();
         <tr>
             <td style="font-size: 15px;">Adresse Email<span style="color: red">*</span></td>
             <td>
-                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required size="35" style="font-size: 15px"> <span style="font-size: 15px;" ></span>
+                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required size="20" style="font-size: 15px"> <span style="font-size: 15px;" >@stauffsa.com </span>
 
             </td>
         </tr>
@@ -67,35 +64,11 @@ $hashed_random_password = InfoArticleRepository::genere_password();
         </tr>
 
         <tr>
-            <td style="font-size: 15px;">Mot de passe<span style="color: red">*</span></td>
-            <td>
-                <input id="password" type="text" class="form-control @error('service') is-invalid @enderror" name="password" value="{{$hashed_random_password}}" required size="35" style="font-size: 15px; background-color:#e5e5e5" readonly >
-            </td>
-        </tr>
-
-        <tr>
-            <td style="font-size: 15px;">CardCode<span style="color: red">*</span></td>
-            <td>
-                <input id="CardCode" type="text" class="form-control @error('CardCode') is-invalid @enderror" name="CardCode" value="{{ old('CardCode') }}" required size="35" style="font-size: 15px">
-            </td>
-        </tr>
-
-        <tr>
             <td colspan="2">
                 <br/>
                 <span style="color: red">* Champ obligatoire</span>
             </td>
         </tr>
-
-        <tr>
-            <td colspan="2" align='right'>
-                <div align="right">
-                    <input id="button_register" type="submit" class="buttongreen" value="Créer le compte">
-                    <div id="sanduhr_register" style="display:none;"><img id="sanduhr_register_img" src="{{ asset('pictures/preloader.gif')}}" height="20" border="0"></div>
-                </div>
-            </td>
-        </tr>
-
     </table>
 
     @error('telephone_fixe')
@@ -133,19 +106,41 @@ $hashed_random_password = InfoArticleRepository::genere_password();
         </span>
     @enderror
 
-    @error('CardCode')
-        <br/><br/>
-        <span style="color:red">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-
     @if (session('status'))
         <br/><br/>
         <span style="color:blue" >
             <strong>{{ session('status') }}</strong>
         </span>
     @endif
+
+    <hr align='left' width='76%'>
+
+    <table border="0" width="80%">
+        <thead>
+            <tr>
+                <td colspan="2" style="font-size: 17px">Autorisations :</td>
+            </tr>
+            <tr height="15px"></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size: 15px">Accès aux prix</td>
+                <td>
+                    <label class="switch" align="right">
+                        <input class="switch-input" type="checkbox" name="prix"/>
+                        <span class="switch-label" data-on="oui" data-off="non"></span>
+                        <span class="switch-handle"></span>
+                    </label>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div align="right">
+        <input id="button_add" type="submit" class="buttongreen" value="Créer le compte">
+        <div id="sanduhr_add" style="display:none;"><img id="sanduhr_add_img" src="{{ asset('pictures/preloader.gif')}}" height="20" border="0"></div>
+    </div>
+
 
 </form>
 @endsection

@@ -16,6 +16,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <link rel="shortcup icon" type="image/x-icon" href="{{ asset('pictures/favicon.ico')}}" />
 
     <script language="JavaScript1.2" type="text/javascript" src="{{ asset('js/page.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.js')}}"></script>
 </head>
 
 <body>

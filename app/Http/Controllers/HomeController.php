@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
 use DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -30,13 +31,20 @@ class HomeController extends Controller
         $user = DB::table('stauff_users')->whereId($id)->first();
 
         if ($user->firstTime === '1') {
-            return redirect('change-password');
+            return view('auth.passwords.change')->with('msg', "firstime");
         } else {
-            return view('onglet.home')->with('tabSelect', 'acceuil');
+            $updated_at = Auth::user()->updated_at;
+            $updated_at_plus_3_mois = $updated_at->addMonths(3);
+            $updated_at_plus_3_mois->hour = 0;
+            $updated_at_plus_3_mois->minute = 0;
+            $dateNow = Carbon::now();
+
+            if ($updated_at_plus_3_mois <= $dateNow) {
+                return view('auth.passwords.change')->with('msg', "3months");
+            } else {
+                return view('onglet.home');
+            }
         }
-
-
-
 
         //return view('home');
     }

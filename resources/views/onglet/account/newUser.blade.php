@@ -8,9 +8,9 @@
 
     <input type="hidden" value="{{$fin}}" name="finEmail"/>
     <?php
-        use Illuminate\Support\Facades\Hash;
+    use App\Repositories\InfoArticleRepository;
 
-$hashed_random_password = str_random(8);
+$hashed_random_password = InfoArticleRepository::genere_password();
     ?>
     <input id="password" type="hidden" name="password" value="{{$hashed_random_password}}"/>
 
@@ -77,6 +77,13 @@ $hashed_random_password = str_random(8);
         <br/><br/>
         <span style="color:red">
             <strong>{{ $message }}</strong>
+        </span>
+    @enderror
+
+    @error('nbEmployee')
+        <br/><br/>
+        <span style="color:red">
+            <strong>Vous avez dépassé le nombre de compte possible (15) <br> Veuillez nous contacter pour plus d'informations</strong>
         </span>
     @enderror
 

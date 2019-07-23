@@ -1,16 +1,8 @@
-@extends('layouts.beforeAuth')
+@extends('layouts.afterAuth')
 
 @section('titre','Changement de mot de passe')
 
 @section('content')
-
-@isset($msg)
-    @if($msg === "firstime")
-        <span style="font-size: 15px;"><b>Pour votre première connexion vous devez modifier votre mot de passe.</b></span>
-    @else
-        <span style="font-size: 15px;"><b>Le délai de 3 mois a expiré, vous devez changer votre mot de passe.</b></span>
-    @endif
-@endif
 
 <script>
     $(document).ready(function(){
@@ -88,7 +80,6 @@
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" value="" required size="20"style="font-size: 15px">
             </td>
         </tr>
-
         <tr>
             <td></td>
             <td>
@@ -124,12 +115,17 @@
             </td>
         </tr>
 
+
+
         <tr>
             <td style="font-size: 15px;">Confirmer le mot de passe</td>
             <td>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" value="" required size="20" style="font-size: 15px">
 
             </td>
+        </tr>
+        <tr height="10 px">
+            <td colspn="2"></td>
         </tr>
         <tr>
             <td colspan="2">
@@ -158,20 +154,17 @@
 </form>
 
 @if(session('msgError'))
-    <br/><br/>
-    <span style="color:red">
-        <strong>{{ session('msgError') }}</strong>
-    </span>
+<br/><br/>
+<span style="color:red">
+    <strong>{{ session('msgError') }}</strong>
+</span>
 @endif
 
 @if(session('msgSuccess'))
-    <br/><br/>
-    <span style="color:blue">
-        <strong>{{ session('msgSuccess') }}</strong>
-    </span>
-    <form name="acceuil" action="{{ route('home') }}" method="GET">
-        <input id="button_acceuil" type="submit" class="buttongreen" value="Aller à la page d'acceuil =>" style="float:right">
-    </form>
+<br/><br/>
+<span style="color:blue">
+    <strong>{{ session('msgSuccess') }}</strong>
+</span>
 @endif
 
 @endsection

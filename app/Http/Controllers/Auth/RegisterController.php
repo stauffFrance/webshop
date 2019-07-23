@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'CardCode' => ['required', 'alpha_num', 'min:7', 'max:7', 'regex:/[A-Z][0-9]{6}/', 'unique:STAUFF_Users'],
             'telephone_fixe' => ['required', 'digits:10'],
+            'telephone_portable' => ['regex:/^([0-9]{10})$/','nullable'],
             'service' => ['required', 'string', 'max:255'],
             'fonction' => ['required', 'string', 'max:255'],
         ]);
@@ -103,27 +104,4 @@ class RegisterController extends Controller
 
         return $u;
     }
-
-    /*public function sendEmail(Request $request){
-        $title = "Identifiants pour Stauff.com";
-        $content = 'content';
-        $user_email = "informatique.stagiaire@stauffsa.com";
-        $user_name = "Nathan";
-
-
-        try
-        {
-            $data = ['email'=> $user_email,'name'=> $user_name,'subject' => $title, 'content' => $content];
-            Mail::send('emails/'.$content, $data, function($message) use($data)
-            {
-                $subject=$data['subject'];
-                $message->from('stauff.sa@gmail.com');
-                $message->to($data['email'])->subject($subject);
-            });
-        }
-        catch (\Exception $e)
-        {
-            dd($e->getMessage());
-        }
-    }*/
 }
