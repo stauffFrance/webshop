@@ -18,7 +18,7 @@ De : {{$user->nom}} {{$user->prenom}} - {{$user->email}} <br/><br/>
             D&eacute;lai
         @endif
     @else
-        Délai
+        D&eacute;lai
     @endif
 
     &nbsp;-&nbsp;{{$request['qty']}}

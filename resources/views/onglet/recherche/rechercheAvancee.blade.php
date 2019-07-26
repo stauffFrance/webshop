@@ -84,7 +84,7 @@
                                     </td>
                                     <td class="col2" style="padding-left: 60px;">
                                         <div id="Help_search_custm" style="display: none; position:absolute; top:0px; left:0px; max-width: 300px;background-color: #ffffff; filter:Alpha(opacity=100);background-repeat:no-repeat; border:2px; border-color:#007857; border-style: solid;padding:5px;-moz-opacity: 1.0; opacity: 1.0; z-index: 99999;">
-                                            Recherche via votre référence complète
+                                            Recherche via votre référence complète.
                                         </div>
                                         <table border="0">
                                             <tr>
@@ -139,17 +139,17 @@
                                                     </nobr>
                                                     <br/><br/>
                                                     Recherche&nbsp;
-                                                    <img src="{{asset('pictures/info-icon.png')}}" border="0" onmouseover="showHelp(event,true,'Help_search_filterinterchange');" onmouseout="showHelp(event,false,'Help_search_filterinterchange');"/>
+                                                    <img src="{{asset('pictures/info-icon.png')}}" border="0" /> <!-- onmouseover="showHelp(event,true,'Help_search_filterinterchange');" onmouseout="showHelp(event,false,'Help_search_filterinterchange');" -->
                                                     <br/>
 
                                                     <table border="0">
                                                         <tr>
                                                             <td>
-                                                                <input type="text" name="search_filterinterchange" value="" size="20" maxlength="40" onkeypress="return CheckEnter(event,'filterinterchange');"/>
+                                                                <input type="text" name="search_filterinterchange" value="" size="20" maxlength="40" style="background-color: #eeeeee" readonly /> <!-- onkeypress="return CheckEnter(event,'filterinterchange');" -->
                                                             </td>
                                                             <td>
                                                                 <div id="button_filterinterchange" style="display:block;">
-                                                                    <input id="" type="submit" class="buttongreen" value="Rechercher" onClick="document.f_directsearch.searchtype.value='filterinterchange'; return true;">
+                                                                    <input id="" type="submit" class="buttongray" value="Rechercher" disabled onClick="document.f_directsearch.searchtype.value='filterinterchange'; return true;"> <!-- class="buttongreen" -->
                                                                 </div>
                                                                 <div id="sanduhr_filterinterchange" style="display:none;">
                                                                     <img id="sanduhr_filterinterchange_img" src="{{asset('pictures/preloader.gif')}}" height="20" border="0">

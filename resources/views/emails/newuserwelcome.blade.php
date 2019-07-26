@@ -4,9 +4,9 @@
 
 Vous pouvez vous identifier avec :
 
-Votre adresse Email : **{{$email}}**
+Votre adresse Email : {{$email}}
 <br/>
-Votre mot de passe : **{{$password}}**
+Votre mot de passe : <b>{{$password}}</b>
 
 @component('mail::button', ['url' => $actionUrl])
 {{ $actionText }}

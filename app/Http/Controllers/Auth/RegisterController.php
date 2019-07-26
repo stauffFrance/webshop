@@ -95,7 +95,12 @@ class RegisterController extends Controller
             'fonction' => $data['fonction'],
             'password' => bcrypt($data['password']),
             'CardCode' => $data['CardCode'],
-            'admin' => 1
+            'admin' => 1,
+            'acces_panier' => 1,
+            'acces_prix' => 1,
+            'acces_suivi' => 1,
+            'acces_condition' => 1,
+            'acces_demande' => 1
         ]);
 
         $user = new User();

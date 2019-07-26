@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\MonCompte;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\WelcomeUser;
 use App\User;
 use Auth;
 
@@ -63,5 +65,10 @@ class RegisterInternController extends Controller
             'CardCode' => Auth::user()->CardCode,
             'acces_prix' => isset($data['prix']) ? 1 : 0,
             ]);
+
+        $user = new User();
+        $data['email'] .= '@stauffsa.com';
+        $user->email = $data['email'];
+        $user->notify(new WelcomeUser($data));
     }
 }

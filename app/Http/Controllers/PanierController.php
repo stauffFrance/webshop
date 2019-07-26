@@ -10,6 +10,7 @@ use File;
 use App\Repositories\InfoArticleRepository;
 use Carbon\Carbon;
 use PHPMailer\PHPMailer\PHPMailer;
+use ZipArchive;
 
 class PanierController extends Controller
 {
@@ -25,6 +26,8 @@ class PanierController extends Controller
 
     public function affichePanier(Request $request)
     {
+        //dump(array_diff(scandir('CSV/achat'), array('..', '.','nepastoucher.txt')));
+        //die();
         $adresses = DB::table('STAUFF_webshop_client_adresse')
                         ->select('ShipToCode as nom', 'ShipToStreet as adresse1', 'ShipToCounty as adresse2', 'ShipToCity as ville', 'ShipToZipCode as codePostal', 'Defaut as defaut')
                         ->where('CardCode', '=', Auth::user()->CardCode)
@@ -260,6 +263,9 @@ class PanierController extends Controller
                 ->where('itemCode', '=', $d['code'])
                 ->get();
 
+            //dump($data, $nom, $d);
+            //die();
+
             $d['desc'] = $nom[0]->itemName;
         }
         unset($d);
@@ -296,7 +302,7 @@ class PanierController extends Controller
         $premierJanvier->month = 1;
 
         // Entete -----------------------------------------------------------------------------------------------
-        $fileName = str_replace(' ', '_', $client[0]->nom) . ';'. 'entete;' . $date->format('Ymdhis') . '.csv';
+        $fileName = str_replace(' ', '_', $client[0]->nom) . ';'. 'entete;' . $date->format('YmdHis') . '.csv';
 
         $chemin1 = "CSV/achat/$fileName";
         $delimitateur = ';';
@@ -361,7 +367,7 @@ class PanierController extends Controller
 
         // Ligne -----------------------------------------------------------------------------------------------
 
-        $fileName = str_replace(' ', '_', $client[0]->nom) . ';'. 'ligne;' . $date->format('Ymdhis') . '.csv';
+        $fileName = str_replace(' ', '_', $client[0]->nom) . ';'. 'ligne;' . $date->format('YmdHis') . '.csv';
 
         $chemin2 = "CSV/achat/$fileName";
         $fichier_csv = fopen($chemin2, 'w+');

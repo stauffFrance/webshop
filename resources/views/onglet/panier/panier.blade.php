@@ -132,7 +132,7 @@
                         content: "<span style='font-size: 15px'>En validant, vous acceptez les <a href='{{asset('pdf/STAUFF_CGV.pdf')}}' target='_blank' style='decoration: none; color: #007857'>conditions générales de ventes</a></span>",
                         buttons: {
                             confirm:{
-                                text: 'oui',
+                                text: 'commander',
                                 btnClass: 'btn-stauff',
                                 keys: ['enter'],
                                 draggable: false,
@@ -142,7 +142,7 @@
                                 }
                             },
                             cancel:{
-                                text: 'non',
+                                text: 'annuler',
                             }
                         }
                     });
@@ -282,7 +282,7 @@
                     </td>
 
                     <td align="right">
-                        <a href="{{route('affichepanier')}}?delete={{$loop->index}}" onClick="return confirm('Voulez vous supprimer cet article de votre panier ?');" title="Supprimer cet élément du panier">
+                        <a href="#" onClick="return confirmDelete('Voulez vous supprimer cet article de votre panier ?','{{route('affichepanier')}}?delete={{$loop->index}}');" title="Supprimer cet élément du panier">
                             <img src="{{asset('pictures/del.jpg')}}" border="0"/>
                         </a>
                     </td>
@@ -414,7 +414,7 @@
 
                             <td align="right">
                                 &nbsp;
-                                <a href="{{route('affichepanier')}}?delete=all" onClick="return confirm('Voulez vous vider entièrement votre panier ?');" title="Vider entièrement le panier">
+                                <a href="#" onClick="return confirmDelete('Voulez vous supprimer tous les articles du panier ?', '{{route('affichepanier')}}?delete=all');" title="Vider entièrement le panier">
                                     <img src="{{asset('pictures/del.jpg')}}" border="0"/>
                                 </a>
                             </td>
@@ -467,7 +467,7 @@
                         </tr>
 
                         <tr>
-                            <td id="autres" style="display: none; font-size: 15px;"><br/><mark>Pour utiliser une autre adresse de livraison, veuillez nous contacter</mark></td>
+                            <td id="autres" style="display: none; font-size: 15px;"><br/><mark>Pour utiliser une autre adresse de livraison, veuillez nous contacter.</mark></td>
                         </tr>
                     </table>
                 </td>

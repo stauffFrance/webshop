@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\MonCompte;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use DB;
 use Auth;
 
@@ -21,15 +22,5 @@ class MonCompteController extends Controller
                     ->get();
 
         return view('onglet.account.monCompte')->with('client', $client);
-    }
-
-    public function conditionLivraisonPaiement()
-    {
-        $client = DB::table('STAUFF_webshop_client')
-                    ->select('PymntGroup', 'Descript', 'U_GROUPAGE', 'U_FRANCO', 'U_MINI')
-                    ->where('CardCode', '=', Auth::user()->CardCode)
-                    ->get();
-
-        return view('onglet.account.livraisonPaiement')->with('client', $client[0]);
     }
 }

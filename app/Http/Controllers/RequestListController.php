@@ -63,6 +63,8 @@ class RequestListController extends Controller
 
     public function envoyerRequestList(Request $request)
     {
+        //dump($request);
+        //die();
         $date = Carbon::now()->setTimezone('Europe/Paris');
         $date = $date->format('d/m/Y');
         $user = Auth::user();
@@ -92,7 +94,8 @@ class RequestListController extends Controller
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         $mail->setFrom('webshopfrance@stauffsa.com', 'STAUFF');
-        $mail->addAddress('informatique.stagiaire@stauffsa.com', 'Auger Nathan');
+        //$mail->addAddress('informatique.stagiaire@stauffsa.com', 'Auger Nathan');
+        $mail->addAddress('commercial@stauffsa.com', 'Commercial');
         if (isset($file)) {
             foreach ($file as $f) {
                 $mail->addAttachment($f->getRealPath(), $f->getClientOriginalName());

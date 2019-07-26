@@ -123,3 +123,28 @@ function createAlert(message){
         }
     });
 }
+
+function confirmDelete(message,url){
+    $.confirm({
+        title: '<br/> '+message,
+        content: '',
+        draggable: false,
+        buttons: {
+            cancel:{
+                text: 'annuler',
+                btnClass: 'btn-stauff',
+                keys: ['enter'],
+                action: function(){
+                }
+            },
+            confirm:{
+                text: 'supprimer',
+                action: function(){
+                    window.location.href = url;
+                }
+            },
+
+
+        }
+    });
+}

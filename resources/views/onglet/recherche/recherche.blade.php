@@ -7,7 +7,7 @@
 <table cellpadding="0" cellspacing="0" border="0" align="center">
     <tr>
         <td>
-            <form name="f_directsearch" action="{{route('rechercheparcode')}}" method="get" onsubmit="showWait('button_matnr_descr','sanduhr_matnr_descr');">
+            <form id="f_directsearch" name="f_directsearch" action="{{route('rechercheparcode')}}" method="get" onsubmit="showWait('button_matnr_descr','sanduhr_matnr_descr');">
                 @csrf
                 <table cellpadding="5" cellspacing="0" border="0">
                     <tr>
@@ -80,7 +80,7 @@
                                     <td><b>Produits par page</b></td>
                                     <td>
 
-                                        <select name="hitsperpage" id="pagination" onChange="this.form.submit(); return false;">
+                                        <select name="hitsperpage" id="pagination" onChange="document.f_directsearch.submit(); return false;">
                                             <option value="10" @if($item == 10) selected @endif >10</option>
                                             <option value="20" @if($item == 20) selected @endif>20</option>
                                             <option value="50" @if($item == 50) selected @endif>50</option>
@@ -158,9 +158,7 @@
                     </tr>
                 </table>
             </div>
-
-            <form id="f_addtobasket" name="f_addtobasket" >
-                @csrf
+            
                 <input type="hidden" name="mcount" value="1"/>
 
                 <table cellpadding="2" cellspacing="2" border="0">
@@ -289,7 +287,7 @@
                                     draggable: false,
                                     buttons: {
                                         confirm:{
-                                            text: 'oui',
+                                            text: 'ajouter',
                                             btnClass: 'btn-stauff',
                                             keys: ['enter'],
                                             action: function(){
@@ -312,7 +310,7 @@
                                             }
                                         },
                                         cancel:{
-                                            text: 'non',
+                                            text: 'annuler',
                                         }
                                     }
                                 });
@@ -327,7 +325,6 @@
 
 
                 </table>
-            </form>
             <style>
 
             .pagination li{

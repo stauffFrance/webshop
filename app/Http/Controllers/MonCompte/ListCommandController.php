@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\MonCompte;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
@@ -137,7 +138,7 @@ class ListCommandController extends Controller
 
         array_map('unlink', glob("CSV/listCommand/" . str_replace(' ', '_', $client[0]->nom) . "*"));
 
-        $fileName = str_replace(' ', '_', $client[0]->nom) . '-' . $date->format('Ymdhis') . '.csv';
+        $fileName = str_replace(' ', '_', $client[0]->nom) . '-' . $date->format('YmdHis') . '.csv';
 
         $chemin = "CSV/listCommand/$fileName";
         $delimitateur = ';';

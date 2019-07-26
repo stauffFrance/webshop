@@ -49,6 +49,20 @@
                     <p class="bodytext"><strong>Créer un compte interne</strong></p>
                 </a>
             </td>
+
+            <td align='right' width="120" >
+                <a href="{{route('affichecommandescsv')}}">
+                    <img src="{{asset('pictures/Button-command-csv.png')}}" width="120"  border="0"/>
+                </a>
+            </td>
+
+            <td>
+                <a href="{{route('affichecommandescsv')}}" style="text-decoration:none">
+                    <p class="bodytext">
+                        <strong>Télecharger les commandes</strong>
+                    </p>
+                </a>
+            </td>
         </tr>
     </table>
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\MonCompte;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
 use App\Notifications\WelcomeUser;
 use App\User;
 use DB;
@@ -52,7 +53,7 @@ class GestionUtlisateurController extends Controller
             'telephone_portable' => ['regex:/^([0-9]{10})$/','nullable'],
             'service' => ['required', 'string', 'max:255'],
             'fonction' => ['required', 'string', 'max:255'],
-            'nbEmployee' => ['required','max:16','numeric'],
+            'nombreEmployee' => ['required','max:16','numeric'],
         ]);
     }
 
@@ -86,8 +87,9 @@ class GestionUtlisateurController extends Controller
         ]);
 
         $user = new User();
-        $user->email = $data['email'] . $data['finEmail'];
-        //$user->notify(new WelcomeUser($data));
+        $data['email'] .= $data['finEmail'];
+        $user->email = $data['email'];
+        $user->notify(new WelcomeUser($data));
 
         return $u;
     }

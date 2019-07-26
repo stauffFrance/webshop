@@ -331,7 +331,7 @@ header("Cache-Control: no-store, no-cache, auto-revalidate");
                             &nbsp;<a href="{{route('contact')}}" >Contact</a>
                         </td>
                         <td id="naviFoot" align="center">
-                            Production System (14/03/2019)&nbsp;
+                            Production System (31/07/2019)&nbsp;
 
                         </td>
                         <td align="right" nowrap="">&copy; 2007-2019 STAUFF&nbsp;&nbsp;|&nbsp;&nbsp;All rights reserved.</td>

@@ -16,7 +16,7 @@
                                 <tr>
                                     <td class="col1" style="">
                                         <div id="Help_search_matnr_descr" style="display: none; position:absolute; top:0px; left:0px; max-width: 300px;background-color: #ffffff; filter:Alpha(opacity=100);background-repeat:no-repeat; border:2px; border-color:#007857; border-style: solid;padding:5px;-moz-opacity: 1.0; opacity: 1.0; z-index: 99999;">
-                                            Rechercher via un code ou une désignation STAUFF, avec les caractères spéciaux (ex: 106.4/06.4-PA).
+                                            Recherche via votre référence complète.
                                         </div>
                                         <table border="0">
                                             <tr>
@@ -215,7 +215,7 @@
                                 content: '',
                                 buttons: {
                                     confirm:{
-                                        text: 'oui',
+                                        text: 'ajouter',
                                         btnClass: 'btn-stauff',
                                         keys: ['enter'],
                                         action: function(){
@@ -238,7 +238,7 @@
                                         }
                                     },
                                     cancel:{
-                                        text: 'non',
+                                        text: 'annuler',
                                     }
                                 }
                             });

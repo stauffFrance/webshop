@@ -62,7 +62,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 draggable: false,
                 buttons: {
                     confirm:{
-                        text: 'oui',
+                        text: 'ajouter',
                         btnClass: 'btn-stauff',
                         keys: ['enter'],
 
@@ -92,7 +92,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         }
                     },
                     cancel:{
-                        text: 'non',
+                        text: 'annuler',
                     }
                 }
             });

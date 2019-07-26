@@ -28,7 +28,7 @@
                 <p>Vous pouvez facilement importer votre commande (Code STAUFF & quantité) dans votre panier en utilisant un fichier .CSV (délimité par des points virgules).<br/> Veuillez renseigner au minimum les colonnes code et quantité nommées respectivement <b>code</b> et <b>quantite</b>. </p>
                 <p>Exemple de fichier :
                     <br/>
-                    <img src="{{asset('pictures/UploadExample.png')}}" border="0" title="Le fichier doit contenir au moins le code Stauff ainsi que la quantité.">
+                    <img src="{{asset('pictures/UploadExample.PNG')}}" border="0" title="Le fichier doit contenir au moins le code Stauff ainsi que la quantité.">
                 </p>
                 <p>Veuillez suivre ces 3 étapes pour importer votre commande.</p>
             </td>
@@ -45,7 +45,7 @@
                     <table cellpadding="5" cellspacing="0" border="0">
                         <tr>
                             <td colspan="2">
-                                <input type="file" name="FileUpload"/>
+                                <input type="file" name="FileUpload" accept=".csv, .CSV" required/>
                             </td>
                         </tr>
                         <tr>

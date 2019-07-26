@@ -13,6 +13,10 @@
 
 Auth::routes();
 
+Route::get('/', function () {
+    return redirect()->route('home');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/change-password', 'Auth\ChangePasswordController@index')->name('password.change');
@@ -25,12 +29,12 @@ Route::get('/rechercheParRef', 'RechercheController@afficherParRefClient')->name
 Route::get('/prixStock', 'RechercheController@showPrixStock')->name('prixstock');
 Route::get('/productDetails', 'RechercheController@showProductDetails')->name('productdetails');
 
-Route::get('/monCompte', 'MonCompteController@showPage')->name('moncompte.affiche');
+Route::get('/monCompte', 'MonCompte\MonCompteController@showPage')->name('moncompte.affiche');
 
-Route::get('/monCompte/conditionLivraisonPaiement', 'ConditionLivraisonPaiementController@showPage')->name('conditionlivraisonpaiement');
+Route::get('/monCompte/conditionLivraisonPaiement', 'MonCompte\ConditionLivraisonPaiementController@showPage')->name('conditionlivraisonpaiement');
 
-Route::get('/monCompte/listeCommande', 'ListCommandController@showSelect')->name('commande.afficheselect');
-Route::post('/monCompte/listeCommande', 'ListCommandController@showCommand')->name('commande.affichecommande');
+Route::get('/monCompte/listeCommande', 'MonCompte\ListCommandController@showSelect')->name('commande.afficheselect');
+Route::post('/monCompte/listeCommande', 'MonCompte\ListCommandController@showCommand')->name('commande.affichecommande');
 
 //Route::get('/ajouterPanier', 'PanierController@ajouterAuPanier')->name('ajouteraupanier');
 Route::get('/panier', 'PanierController@affichePanier')->name('affichepanier');
@@ -49,17 +53,20 @@ Route::post('/saveRequestListInput', 'RequestListController@saveRequestListInput
 Route::post('/requestList', 'RequestListController@envoyerRequestList')->name('envoyerrequestlist');
 Route::get('/requestList/confirmation', 'RequestListController@afficheConfirmation')->name('confirmationrequestlist');
 
-Route::get('/monCompte/nouvelUtilisateur', 'GestionUtlisateurController@afficheCreate')->name('nouvelutilisateur.affiche');
-Route::post('/monCompte/nouvelUtilisateur', 'GestionUtlisateurController@register')->name('nouvelutilisateur.ajouter');
+Route::get('/monCompte/nouvelUtilisateur', 'MonCompte\GestionUtlisateurController@afficheCreate')->name('nouvelutilisateur.affiche');
+Route::post('/monCompte/nouvelUtilisateur', 'MonCompte\GestionUtlisateurController@register')->name('nouvelutilisateur.ajouter');
 
-Route::get('/monCompte/modifierProfil', 'GestionUtlisateurController@afficheModif')->name('modifprofil.affiche');
-Route::post('/monCompte/modifierProfil', 'GestionUtlisateurController@modifier')->name('modifprofil.modifier');
+Route::get('/monCompte/modifierProfil', 'MonCompte\GestionUtlisateurController@afficheModif')->name('modifprofil.affiche');
+Route::post('/monCompte/modifierProfil', 'MonCompte\GestionUtlisateurController@modifier')->name('modifprofil.modifier');
 Route::get('/monCompte/changePassword', 'Auth\ChangePasswordController@afficheChangePassword')->name('affichechangepassword');
 Route::post('/monCompte/changePassword', 'Auth\ChangePasswordController@changePassword')->name('changepassword');
-Route::post('/deleteUser', 'GestionUtlisateurController@deleteUser');
+Route::post('/deleteUser', 'MonCompte\GestionUtlisateurController@deleteUser');
 
-Route::get('/monCompte/registerIntern', 'RegisterInternController@afficheCreateIntern')->name('affichecreateintern');
-Route::post('/monCompte/registerIntern', 'RegisterInternController@register')->name('createintern');
+Route::get('/monCompte/commandesCSV', 'MonCompte\CommandCsvController@afficheCommandesCsv')->name('affichecommandescsv');
+Route::post('/monCompte/commandesCSV', 'MonCompte\CommandCsvController@telechargerCommandesCsv')->name('telechargercommandescsv');
+
+Route::get('/monCompte/registerIntern', 'MonCompte\RegisterInternController@afficheCreateIntern')->name('affichecreateintern');
+Route::post('/monCompte/registerIntern', 'MonCompte\RegisterInternController@register')->name('createintern');
 
 Route::get('/contact', function () {
     if (Auth::check()) {

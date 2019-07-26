@@ -1,4 +1,4 @@
-<span style='font-size: 10px'>
+<span style='font-size: 13px'>
 Objet : <b>{{$numCommande}}</b> du {{$date}} <br/><br/>
 
 De : {{$user->nom}} {{$user->prenom}} - {{$user->email}} <br/><br/>

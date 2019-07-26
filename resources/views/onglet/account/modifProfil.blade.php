@@ -8,10 +8,6 @@
         .nomPrenom{
             font-size: 20px;
         }
-        .imageDelete{
-            position: relative;
-            left: 50em;
-        }
     </style>
 
     <script type="text/javascript">
@@ -87,10 +83,13 @@
             content: '',
             draggable: false,
             buttons: {
-                confirm:{
-                    text: 'oui',
+                cancel:{
+                    text: 'annuler',
                     btnClass: 'btn-stauff',
                     keys: ['enter'],
+                },
+                confirm:{
+                    text: 'supprimer',
                     action: function(){
                         var token = $("#token").val();
 
@@ -107,9 +106,7 @@
                         });
                     }
                 },
-                cancel:{
-                    text: 'non',
-                }
+
             }
         });
     }
@@ -124,7 +121,7 @@
                 <tr>
                     <td align='left' class="nomPrenom">
                         <span>
-                            {{ucfirst(strtoupper($user->nom))}} {{ucfirst(strtolower($user->prenom))}}
+                            {{strtoupper($user->nom)}} {{ucfirst(strtolower($user->prenom))}}
                         </span>
                     </td>
                     <td align='right' style="vertical-align: middle">

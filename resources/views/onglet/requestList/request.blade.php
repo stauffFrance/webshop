@@ -77,6 +77,8 @@
         });
     }
 
+
+
     </script>
 
     <form name="f_requestlist" action="{{route('envoyerrequestlist')}}" enctype="multipart/form-data" method="post" @isset($requestList) onsubmit="return checkForm({{count($requestList)}})" @endisset>
@@ -135,7 +137,7 @@
                         </td>
 
                         <td align="right">
-                            <a href="{{route('afficherequestlist')}}?delete={{$loop->index}}" onClick="return confirm('Voulez vous supprimer cet article de cette liste ?');" title="Supprimer cet élément de la liste">
+                            <a href="#" onClick="return confirmDelete('Voulez vous supprimer cette demande ?','{{route('afficherequestlist')}}?delete={{$loop->index}}');" title="Supprimer cet élément de la liste">
                                 <img src="{{asset('pictures/del.jpg')}}" border="0"/>
                             </a>
                         </td>
@@ -169,7 +171,7 @@
                 </td>
 
                 <td align="right">
-                    <a href="{{route('afficherequestlist')}}?delete=all" onClick="return confirm('Voulez vous vider la liste des demandes ?');" title="Vider la liste des demandes">
+                    <a href="#" onClick="return confirmDelete('Voulez vous supprimer toutes les demandes ?','{{route('afficherequestlist')}}?delete=all');" title="Vider la liste des demandes">
                         <img src="{{asset('pictures/del.jpg')}}" border="0"/>
                     </a>
                 </td>
