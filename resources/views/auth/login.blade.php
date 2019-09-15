@@ -78,4 +78,5 @@
 <div style="position: absolute; bottom: 0px;">
     <img border="0" src="{{ asset('pictures/homebanner_en.gif')}}">
 </div>
+
 @endsection

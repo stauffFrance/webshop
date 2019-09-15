@@ -1,0 +1,3 @@
+﻿RecordKey;DocType;DocObjectCode;ShipToCode;CardCode;ShipToStreet;ShipToCity;ShipToCounty;ShipToZipCode;DocDate;DocDueDate;PartialSupply;NumAtCard;SalesPersonCode;PaymentGroupCode;TransportationCode;U_code_corres;U_NOMCORRE;U_NBS_UDP;U_AppPL;U_FRANCO;U_MINI;U_GROUPAGE
+RecordKey;DocType;DocObjectCode;ShipToCode;CardCode;ShipToStreet;ShipToCity;ShipToCounty;ShipToZipCode;DocDate;DocDueDate;PartialSupply;NumAtCard;SalesPersonCode;PaymentGroupCode;TransportationCode;U_code_corres;U_NOMCORRE;U_NBS_UDP;U_AppPL;U_FRANCO;U_MINI;U_GROUPAGE
+1;I;17;DEPOT 1AD MANITOU LAILLE - R&D - PROTO BE;C011550;BOUT DE LANDE BP 9;LAILLE;;35890;20190830;20190101;tYES;ee;15;28;2;42;WebShop;1;N;500;100;Mardi

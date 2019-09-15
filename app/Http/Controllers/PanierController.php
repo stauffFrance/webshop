@@ -184,7 +184,7 @@ class PanierController extends Controller
             $mail->Host = 'smtp.office365.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'webshopfrance@stauffsa.com';
-            $mail->Password = 'Jaju2019!@kmfs6w';
+            $mail->Password = 'Jaju2019!@kmfs6wx';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
             $mail->setFrom('webshopfrance@stauffsa.com', 'STAUFF');

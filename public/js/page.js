@@ -148,3 +148,44 @@ function confirmDelete(message,url){
         }
     });
 }
+
+function zoomPict (ev,mode,picture)
+{
+	var box = document.getElementById('LightBox1');
+	if ( mode )
+	{
+		var posx = 0;
+		var posy = 0;
+		var scrollPos = 0;
+		if (typeof window.pageYOffset != 'undefined')
+		{
+			posx = ev.layerX;
+			posy = ev.layerY;
+			scrollPos = window.pageYOffset; // Firefox
+		}
+		else
+		{
+			posx = ev.x;
+			posy = ev.y;
+			if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat')
+			{
+		   		scrollPos = document.documentElement.scrollTop; // IE1
+			}
+			else if (typeof document.body != 'undefined')
+			{
+		   		scrollPos = document.body.scrollTop; // IE2
+		   	}
+		}
+
+		box.style.left = posx+10 + "px";
+		box.style.top = posy-130 + "px";
+		if ( posy-130 < scrollPos )
+			box.style.top = posy + "px";
+		box.style.backgroundImage = "url(" + encodeURI(picture) + ")";
+		box.style.display = "block";
+	}
+	else
+	{
+		box.style.display = "none";
+	}
+}

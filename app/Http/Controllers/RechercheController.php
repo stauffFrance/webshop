@@ -32,7 +32,7 @@ class RechercheController extends Controller
         $text = str_replace('*', '%', $text);
 
         $articlesRequest = DB::table('OITM')
-                    ->select('itemCode', 'itemName', 'U_CodesSTD')
+                    ->select('itemCode', 'itemName', 'U_CodesSTD', 'PicturName as picture')
                     ->where('frozenFor', '=', 'n')
                     ->whereNotNull('U_CodesSTD')
                     ->where(function ($query) use ($text) {
@@ -42,6 +42,7 @@ class RechercheController extends Controller
                     });
 
 
+
         if ($request->sortBy !== null) {
             $articles = $articlesRequest->orderBy($request->sortBy, $request->sortType)
                                         ->paginate($item);
@@ -49,6 +50,9 @@ class RechercheController extends Controller
             $articles = $articlesRequest->orderBy('itemname', 'asc')
                                         ->paginate($item);
         }
+
+        //dump($articles);
+        //die();
 
         $customerNo = DB::table('OSCN')
                       ->select('ItemCode', 'substitute')

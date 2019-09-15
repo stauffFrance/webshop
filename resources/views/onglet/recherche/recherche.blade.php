@@ -158,7 +158,7 @@
                     </tr>
                 </table>
             </div>
-            
+
                 <input type="hidden" name="mcount" value="1"/>
 
                 <table cellpadding="2" cellspacing="2" border="0">
@@ -229,10 +229,16 @@
                             {{$article->itemCode}} &nbsp; FR<br/>
                             {{$article->U_CodesSTD}} &nbsp; DE<br/><br/>
 
-
+                            @if(isset($article->picture))
+                            <a href="#" onClick="javascript:showproductdetails(event, '{{'pictures/articles/'.$article->picture}}','{{route('productdetails')}}?code={{$article->itemCode}}'); return false;">
+                                Details
+                            </a>
+                            @else
                             <a href="#" onClick="javascript:showproductdetails(event, 'pictures/default-image.jpg','{{route('productdetails')}}?code={{$article->itemCode}}'); return false;">
                                 Details
                             </a>
+                            @endif
+
                             <!-- {{route('productdetails').'?code='.$article->itemCode}} -->
                         </td>
 
@@ -248,8 +254,11 @@
                         </td>
 
                         <td>
-                            <img src="{{asset('pictures/default-image.jpg')}}" border="0" height="65" onmouseover="zoomPict(event,true,'pictures/material/Clamp-Assembly-SP-5XX-PP-DP-AS-M-W3.jpg');" onmouseout="zoomPict(event,false);"/>
-
+                            @if(isset($article->picture))
+                                <img src="{{asset('pictures/articles/'.$article->picture)}}" border="0" height="65" onmouseover="zoomPict(event,true,'{{'pictures/articles/'.$article->picture}}');" onmouseout="zoomPict(event,false);"/>
+                            @else
+                                <img src="{{asset('pictures/default-image.jpg')}}" border="0" height="65"/>
+                            @endif
                         </td>
                         <td nowrap>
                             <b>{{$article->itemName}}</b>

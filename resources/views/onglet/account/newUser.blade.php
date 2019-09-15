@@ -13,7 +13,6 @@
 $hashed_random_password = InfoArticleRepository::genere_password();
     ?>
     <input id="password" type="hidden" name="password" value="{{$hashed_random_password}}"/>
-
     <table>
         <tr>
             <td style="font-size: 15px;">Nom<span style="color: red">*</span></td>
